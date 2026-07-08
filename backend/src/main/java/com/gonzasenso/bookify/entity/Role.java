@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "role")
 public class Role {
     
+    // Attributes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -16,10 +17,12 @@ public class Role {
     @Column(length = 255)
     private String description;
 
+    // Constructors
     public Role(){
 
     }
 
+    // Getters and Setters
     public Integer getId(){
         return id;
     }
