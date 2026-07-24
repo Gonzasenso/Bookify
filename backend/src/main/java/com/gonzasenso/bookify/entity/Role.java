@@ -1,5 +1,9 @@
 package com.gonzasenso.bookify.entity;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -16,6 +20,10 @@ public class Role {
 
     @Column(length = 255)
     private String description;
+
+    @OneToMany(mappedBy = "role")
+    @JsonIgnore
+    private List<User> users;
 
     // Constructors
     public Role(){
@@ -45,5 +53,13 @@ public class Role {
 
     public void setDescription(String description){
         this.description = description;
+    }
+
+    public List<User> getUsers(){
+        return users;
+    }
+
+    public void setUsers(List<User> users){
+        this.users = users;
     }
 }
