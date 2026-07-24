@@ -5,6 +5,9 @@ import java.time.LocalDate;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.MapsId;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -13,8 +16,10 @@ public class Employee {
     
     // Attributes
     @Id
-    @Column(name = "user_id")
-    private Integer userId;
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Column(name = "hire_date", nullable = false)
     private LocalDate hireDate;
@@ -31,13 +36,13 @@ public class Employee {
     }
 
     // Getters and Setters
-    public Integer getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
 

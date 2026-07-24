@@ -38,8 +38,9 @@ public class Business {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "employee_id", nullable = false)
-    private Integer employeeId;
+    @ManyToOne
+    @JoinColumn(name = "employee_id", nullable = false)
+    private Employee employee;
 
     // Constructors
     public Business(){
@@ -119,20 +120,12 @@ public class Business {
         this.createdAt = createdAt;
     }
 
-    public Integer getEmployeeId() {
-        return employeeId;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
-
-
-
-
-
-
-
-    
 
 }
